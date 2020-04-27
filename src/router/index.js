@@ -1,9 +1,11 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../components/Login.vue'
-import Login from '../components/Login.vue'
+const Login = () => import ('../components/Login.vue')
+const Home = () => import ('../components/Home.vue')
+const Department = () => import('../components/Department.vue')
+const Position = () => import('../components/Position.vue')
+const Staff = () => import('../components/Staff.vue')
 Vue.use(VueRouter);
-
 const routes = [
   {
     path: '/login',
@@ -11,15 +13,32 @@ const routes = [
     component: Login,
   },
   {
-    path:'/home',
-    name:Home,
-    component:Home
+    path: '/home',
+    name: 'Home',
+    component: Home,
+    children:[
+      {
+        path: '/department',
+        name: 'Department',
+        component: Department,
+      },
+      {
+        path:'/position',
+        name:'Position',
+        component:Position
+      },
+      {
+        path:'/staff',
+        name:'Staff',
+        component:Staff
+      }
+    ]
   },
+  
   {
     path:'/',
     redirect:'/login'
   }
-
   // {
   //   path: '/about',
   //   name: 'About',

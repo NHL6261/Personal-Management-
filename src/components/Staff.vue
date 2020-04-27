@@ -1,6 +1,6 @@
 <template>
-  <div id="WraperContainer">
-    <router-view></router-view>
+  <div>
+      <h1>这是员工管理页面</h1>
   </div>
 </template>
 
@@ -10,9 +10,6 @@
 </script>
 
 <style lang="less" scoped>
-#WraperContainer{
-  width: 100%;
-  height: 100%;
-}
+
  
 </style>
