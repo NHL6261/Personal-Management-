@@ -4,7 +4,7 @@
     <!-- 头部 -->
     <el-header>
       <div class="header_content">
-        <img src="../assets/header.png" alt="图片暂时无法显示" />
+        <img src="../assets/03030.jpg" alt="图片暂时无法显示" />
         <span>人员管理系统</span>
       </div>
       <div class="echo_text">
@@ -107,6 +107,11 @@ export default {
     this.Super_Manage();
     // 获取当前 在哪个路由页面下
     this.activePath = window.sessionStorage.getItem("activePath");
+    // let token = window.sessionStorage.getItem('token')
+    // console.log(token)
+    // if(token){
+
+    // }
   },
   methods: {
     // 判断是不是超级管理员 
@@ -135,7 +140,6 @@ export default {
       let res = await this.$http.getMenusList();
       if (res.meta.status !== 200) return this.$message.error(res.meta.msg);
       this.LeftInfo = res.data;
-      console.log(this.LeftInfo);
     },
     // 左侧导航的 扩大和缩小 
     toggleCollpase() {

@@ -10,6 +10,11 @@ import ajax from './ajax'
 export const getUserInfo = () => ajax({
     url:'/getListUserInfo'
 })
+// 获取左侧导航信息
 export const getMenusList = () => ajax({
     url:'/menus'
+})
+// 获取用户列表信息
+export const getUser = () => ajax({
+    url:'/users'
 })

@@ -3,9 +3,12 @@
   <div id="containerTenter">
     <!-- 登录区域背景 -->
     <div class="login_back">
+      <!-- 头部img -->
+      <div class="Img_Header">
+        <img src="../assets/tou.png" alt="此图片无法显示" />
+      </div>
       <!-- 登录Header -->
       <div class="login_header">
-        <p>人员管理系统</p>
       </div>
       <!-- 登录表单区域 -->
       <el-form
@@ -49,11 +52,12 @@ export default {
     return {
       LoginForm: {
         username: "", // 用户名
-        password: "", // 密码
+        password: "" // 密码
       },
       // 获取登录信息
       UserInfo: [], // 用户登录正确
       SavaToken: "", // 保存token
+      path_login: "", //当前路径
       // 表单的验证规则
       rules: {
         // 用户名验证
@@ -69,23 +73,26 @@ export default {
       }
     };
   },
-  created(){
+  created() {
     // 回车键
-    document.onkeypress = e =>  {
+    document.onkeypress = e => {
       var keycode = document.all ? event.keyCode : e.which;
-      if (keycode === 13) {
-        this.goLogin();// 登录方法
-         return false;
+      let login;
+      login = this.$route.path;
+      this.login = login;
+      if (this.$route.path !== login) {
+        return;
+      } else if (keycode === 13) {
+        this.goLogin(); // 登录方法
+        return false;
       }
     };
     // 将登录信息存到 session中
-    window.sessionStorage.setItem('userinfo',this.LoginForm.username)
+    window.sessionStorage.setItem("userinfo", this.LoginForm.username);
   },
   methods: {
     // 键盘按下
-    onEnter(event) {
-        
-    },
+    onEnter(event) {},
     resetLoginForm() {
       // 重置表单
       this.$refs.resetInputRef.resetFields();
@@ -93,16 +100,22 @@ export default {
     },
     // 表单预验证
     goLogin() {
+      if (this.login !== "/login") {
+        return;
+      }
       this.$refs.resetInputRef.validate(async valid => {
-        if(valid !== false){
-          const result = await this.$http.getUserInfo()
-          if(result.data[0].status === 200){
-            this.$message.success('恭喜您登录成功!!')
-            window.sessionStorage.setItem('token',result.data[0].token)
-            window.sessionStorage.setItem('login_info',this.LoginForm.username)
-            this.$router.push('home')
-          }else{
-            this.$message.error('请输入合法信息!!')
+        if (valid !== false) {
+          const result = await this.$http.getUserInfo();
+          if (result.data[0].status === 200) {
+            this.$message.success("恭喜您登录成功!!");
+            window.sessionStorage.setItem("token", result.data[0].token);
+            window.sessionStorage.setItem(
+              "login_info",
+              this.LoginForm.username
+            );
+            this.$router.push("home");
+          } else {
+            this.$message.error("请输入合法信息!!");
           }
         }
       });
@@ -116,7 +129,7 @@ export default {
 #containerTenter {
   width: 100%;
   height: 100%;
-  background-image: url("../assets/back.jpg");
+  background-image: url("../assets/veer-315418201.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -143,7 +156,26 @@ export default {
   }
 }
 .btns {
+  width: 100%;
   display: flex;
   justify-content: space-between;
+}
+.Img_Header {
+  width: 130px;
+  height: 130px;
+  border: 1px solid #eee;
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 0 10px #ddd;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #eee;
+  }
 }
 </style>
