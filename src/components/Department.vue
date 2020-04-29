@@ -3,8 +3,8 @@
     <!-- 面包屑组件 -->
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item>用户管理</el-breadcrumb-item>
-      <el-breadcrumb-item>用户列表</el-breadcrumb-item>
+      <el-breadcrumb-item>人员管理</el-breadcrumb-item>
+      <el-breadcrumb-item>部门管理</el-breadcrumb-item>
     </el-breadcrumb>
     <!-- 卡片试图区域 -->
     <el-card>
@@ -27,12 +27,6 @@
         <el-table-column label="邮箱" prop="email"></el-table-column>
         <el-table-column label="电话" prop="moblie"></el-table-column>
         <el-table-column label="角色" prop="role_name"></el-table-column>
-        <el-table-column label="状态">
-          <!-- 作用域插槽 slot-scope="scope" -->
-          <template slot-scope="scope">
-            <el-switch @change="userStateChanger(scope.row)" v-model="scope.row.mg_state"></el-switch>
-          </template>
-        </el-table-column>
         <el-table-column label="操作" width="180px">
           <template slot-scope="scope">
             <!-- 修改按钮 -->

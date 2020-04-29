@@ -18,3 +18,9 @@ export const getMenusList = () => ajax({
 export const getUser = () => ajax({
     url:'/users'
 })
+
+// 获取员工信息
+
+export const getDetails = () => ajax({
+    url:'/details'
+})

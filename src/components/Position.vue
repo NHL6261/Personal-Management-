@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h1>这是职工管理页面</h1>
+    <h1>职位管理</h1>
   </div>
 </template>
 
