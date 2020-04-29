@@ -96,11 +96,18 @@
         <el-button type="primary" @click="revise">确 定</el-button>
       </span>
     </el-dialog>
+    <!-- 分隔 -->
+    <div class="Separate"></div>
+    <Footer></Footer>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+import Footer from './Footer'
 export default {
+  components:{
+    Footer
+  },
   data() {
     //  自定义验证 用户名
     var checkUser = (rule, value, callback) => {
@@ -259,5 +266,9 @@ export default {
 <style lang="less" scoped>
 .el-form-item__label {
   width: 58px;
+}
+.Separate{
+  width: 100%;
+  height: 180px;
 }
 </style>

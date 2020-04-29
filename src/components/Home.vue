@@ -190,6 +190,9 @@ export default {
   position: absolute;
   right: 150px;
 }
+.echo_text > p{
+  cursor: pointer;
+}
 .el-aside {
   background-color: #333744;
 }

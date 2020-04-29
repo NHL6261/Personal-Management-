@@ -28,6 +28,8 @@ import {
     Dialog,
     Carousel,
     CarouselItem,
+    Tabs,
+    TabPane,
 } from 'element-ui'
 Vue.use(Button)
 Vue.use(Form)
@@ -56,4 +58,6 @@ Vue.use(Pagination)
 Vue.use(Dialog)
 Vue.use(Carousel)
 Vue.use(CarouselItem)
+Vue.use(Tabs)
+Vue.use(TabPane)
 Vue.prototype.$message = Message

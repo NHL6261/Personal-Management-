@@ -64,3 +64,8 @@ time, mark, audio, video, input {
     height: 50px;
     border-radius: 50%;
 }
+
+.el-icon-edit{
+    width: 15px;
+    height: 15px;
+}
