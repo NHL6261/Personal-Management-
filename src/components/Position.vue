@@ -1,8 +1,13 @@
 <template>
   <div class="dormitory">
+    <el-breadcrumb separator-class="el-icon-arrow-right">
+      <el-breadcrumb-item  :to="{ path: '/home' }">首页</el-breadcrumb-item>
+      <el-breadcrumb-item>人员管理</el-breadcrumb-item>
+      <el-breadcrumb-item>职位管理</el-breadcrumb-item>
+    </el-breadcrumb>
     <div class="searchWord">
       <div style="display: inline-block">搜索：</div>
-      <el-input v-model="search" style="display: inline-block;width: 1300px" placeholder="请输入搜索内容"></el-input>
+      <el-input v-model="search" style="display: inline-block;width: 1300px" placeholder="请输入搜索内容" ></el-input>
     </div>
     <!-- // 遍历表格 -->
     <div class="dormitoryData">
@@ -25,11 +30,17 @@
         <el-table-column label="成名之作" prop="works"></el-table-column>
       </el-table>
     </div>
+    <!-- 底部Footer -->
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
+import Footer from "./Footer";
 export default {
+  components: {
+    Footer
+  },
   data() {
     return {
       dormitory: [
@@ -99,6 +110,11 @@ export default {
       ],
       search: ""
     };
+  },
+  methods:{
+    test(){
+      console.log(11111)
+    }
   },
   computed: {
     // 模糊搜索

@@ -47,7 +47,7 @@
                 </el-tooltip>
                 <!-- 删除按钮 -->
                 <el-tooltip :enterable="false" effect="dark" content="删除角色" placement="top">
-                  <el-button type="danger" icon="el-icon-delete" size="mini" @click="delete_data()"></el-button>
+                  <el-button type="danger" icon="el-icon-delete" size="mini" ></el-button>
                 </el-tooltip>
                 <!-- 分配角色按钮 -->
                 <el-tooltip :enterable="false" effect="dark" content="分配角色" placement="top">

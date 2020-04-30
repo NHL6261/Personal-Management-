@@ -78,7 +78,7 @@
         <el-button type="primary" @click="addUser">确 定</el-button>
       </span>
     </el-dialog>
-    <!-- 点击修改按钮后弹出此对话框 -->
+    <!-- 点击修改按钮后弹出此对话框 显示或者隐藏 -->
     <el-dialog title="修改用户" :visible.sync="editDialogVisible" width="20%">
       <el-form :rules="reviseRules" ref="reviseRef" label-width="70px">
         <el-form-item label="名称">
@@ -96,8 +96,6 @@
         <el-button type="primary" @click="revise">确 定</el-button>
       </span>
     </el-dialog>
-    <!-- 分隔 -->
-    <div class="Separate"></div>
     <Footer></Footer>
   </div>
 </template>
